@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -10,13 +9,12 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-import { ShoppingListAddComponent } from './shopping-list/shopping-list-add.component';
 import { DropdownDirective } from './dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { AppRouting } from './app.routes';
 import { RecipeStartComponent } from './recipes/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
 
 @NgModule({
     declarations: [
@@ -26,18 +24,16 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
         RecipeListComponent,
         RecipeItemComponent,
         RecipeDetailComponent,
-        ShoppingListComponent,
-        ShoppingListAddComponent,
         DropdownDirective,
         RecipeStartComponent,
         RecipeEditComponent
     ],
     imports: [
         BrowserModule,
-        FormsModule,
         HttpModule,
         AppRouting,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ShoppingListModule
     ],
     providers: [ShoppingListService],
     bootstrap: [AppComponent]
