@@ -1,45 +1,48 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-// import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
-import { RecipeItemComponent } from './recipes/recipe-list/recipe-item.component';
-import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
-import { DropdownDirective } from './dropdown.directive';
-import { ShoppingListService } from './shopping-list/shopping-list.service';
-import { appRouting } from './app.routes';
-import { RecipeStartComponent } from './recipes/recipe-start.component';
-import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
-// import { RecipesModule } from './recipes/recipes.module';
-import { HomeComponent } from './home.component';
+import { AppComponent } from './components/app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RecipesComponent } from './components/recipes/recipes.component';
+import { RecipeListComponent } from './components/recipes/recipe-list/recipe-list.component';
+import { RecipeDetailComponent } from './components/recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './components/recipes/recipe-list/recipe-item/recipe-item.component';
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
+import { ShoppingEditComponent } from './components/shopping-list/shopping-edit/shopping-edit.component';
+
+import { DropdownDirective } from './directives/dropdown.directive';
+import { ShoppingListService } from './services/shopping-list.service';
+import { RecipeService } from './services/recipe.service';
+import { DataStorageService } from './services/data-storage.service';
+
+import { AppRoutingModule } from './app-routing.module';
+import { RecipeStartComponent } from './components/recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './components/recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        DropdownDirective,
-        HomeComponent,
-        // RecipesComponent,
-        // RecipeListComponent,
-        // RecipeItemComponent,
-        // RecipeDetailComponent,
-        // RecipeStartComponent,
-        // RecipeEditComponent
-    ],
-    imports: [
-        BrowserModule,
-        HttpModule,
-        appRouting,
-        // ReactiveFormsModule,
-        ShoppingListModule
-        // RecipesModule
-    ],
-    providers: [ShoppingListService],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    ShoppingListComponent,
+    ShoppingEditComponent,
+    DropdownDirective,
+    RecipeStartComponent,
+    RecipeEditComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule,
+    AppRoutingModule
+  ],
+  providers: [ShoppingListService, RecipeService, DataStorageService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
